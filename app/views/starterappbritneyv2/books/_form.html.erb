@@ -2,6 +2,7 @@
 <%= f.input :cover, as: :file_picker %>
 <%= f.input :slug, as: :path %>
 <%= f.association :authors, as: :select %>
+<%= f.association :categories, collection: Cms::Category.of_type("Genres"), label: "Genres" %>
 <%= f.input :in_stock %>
 <%= f.input :price %>
 <%= f.input :description, as: :text_editor %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716011423) do
+ActiveRecord::Schema.define(version: 20140716220913) do
 
   create_table "author_versions", force: true do |t|
     t.string   "name"
@@ -78,6 +78,11 @@ ActiveRecord::Schema.define(version: 20140716011423) do
     t.boolean  "archived",      default: false
     t.integer  "created_by_id"
     t.integer  "updated_by_id"
+  end
+
+  create_table "books_cms_categories", id: false, force: true do |t|
+    t.integer "book_id"
+    t.integer "category_id"
   end
 
   create_table "cms_attachment_versions", force: true do |t|

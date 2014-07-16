@@ -3,6 +3,11 @@
     <dt>Cover:</dt><dd><%= link_to "Cover", attachment_path_for(@content_block.cover) %></dd>
         <dt>In Stock:</dt><dd><%= show :in_stock %></dd>
         <dt>Price:</dt><dd><%= show :price %></dd>
+        <dt>Genres:</dt>
+          <dd>
+          <% @content_block.categories.each do |category| %>
+            <li><%= category.name %></li>
+          <% end %> 
+          </dd>
         <dt>Description:</dt><dd><%= show :description %></dd>
-    
 </dl>
