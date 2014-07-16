@@ -1,4 +1,5 @@
 Starterappbritneyv2::Application.routes.draw do
+  namespace :starterappbritneyv2 do content_blocks :books end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

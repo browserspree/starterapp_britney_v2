@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716002536) do
+ActiveRecord::Schema.define(version: 20140716003414) do
+
+  create_table "book_versions", force: true do |t|
+    t.string   "name"
+    t.boolean  "in_stock"
+    t.integer  "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "original_record_id"
+    t.integer  "version"
+    t.boolean  "published",          default: false
+    t.boolean  "deleted",            default: false
+    t.boolean  "archived",           default: false
+    t.string   "version_comment"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+  end
+
+  create_table "books", force: true do |t|
+    t.string   "name"
+    t.boolean  "in_stock"
+    t.integer  "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "version"
+    t.integer  "lock_version",  default: 0
+    t.boolean  "published",     default: false
+    t.boolean  "deleted",       default: false
+    t.boolean  "archived",      default: false
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+  end
 
   create_table "cms_attachment_versions", force: true do |t|
     t.string   "data_file_name"
