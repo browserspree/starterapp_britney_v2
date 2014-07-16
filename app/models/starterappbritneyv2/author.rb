@@ -5,6 +5,6 @@ module Starterappbritneyv2
     content_module :authors
     has_attachment :headshot
 
-    validates_presense_of :name
+    validates_presence_of :name
   end
 end
