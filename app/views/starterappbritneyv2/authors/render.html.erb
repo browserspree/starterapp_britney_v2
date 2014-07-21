@@ -1,6 +1,11 @@
 <dl>
     <dt>Name:</dt><dd><%= show :name %></dd>
     <dt>Headshot:</dt><dd><%= link_to "Headshot", attachment_path_for(@content_block.headshot) %></dd>
-        <dt>Bio:</dt><dd><%= show :bio %></dd>
-    
+    <dt>Bio:</dt><dd><%= show :bio %></dd>
+    <dt>Books:</dt>
+    <dd><ul>
+      <% @content_block.books.each do |book| %>
+        <li><%= link_to book.name, main_app.book_slug_path(book.slug) %></li>
+      <% end %>
+    </ul></dd>  
 </dl>
