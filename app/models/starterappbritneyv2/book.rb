@@ -8,5 +8,9 @@ module Starterappbritneyv2
     has_attachment :cover
 
     validates_presence_of :name
+
+    def self.for_sale
+      where(in_stock: true)
+    end
   end
 end
