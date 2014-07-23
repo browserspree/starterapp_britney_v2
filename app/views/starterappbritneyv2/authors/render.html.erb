@@ -1,11 +1,21 @@
 <dl>
     <dt>Name:</dt><dd><%= show :name %></dd>
-    <dt>Headshot:</dt><dd><%= link_to "Headshot", attachment_path_for(@content_block.headshot) %></dd>
+    <dd><%= image_tag @content_block.headshot.url %></dd>  
     <dt>Bio:</dt><dd><%= show :bio %></dd>
-    <dt>Books:</dt>
+    <dt>Available Books:</dt>
     <dd><ul>
-      <% @content_block.books.each do |book| %>
-        <li><%= link_to book.name, main_app.book_slug_path(book.slug) %></li>
-      <% end %>
+        <%= render partial: 'book_stock_status' %>
     </ul></dd>  
 </dl>
+
+<% if @content_block.books.count > 1 %>
+  <hr>
+  <h2><%= "Additional Books by #{@content_block.name}" %></h2>
+  <ul>
+    <% @content_block.books.each do |book| %>
+      <% if !book.in_stock? %>
+        <li><%= link_to book.name, main_app.book_slug_path(book.slug) %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
