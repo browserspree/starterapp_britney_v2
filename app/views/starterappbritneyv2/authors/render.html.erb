@@ -4,7 +4,7 @@
     <dt>Bio:</dt><dd><%= show :bio %></dd>
     <dt>Available Books:</dt>
     <dd><ul>
-        <%= render 'book_stock_status', books: @content_block.books.for_sale %>
+        <%= render 'book_stock_status', books: @content_block.books.available(true) %>
     </ul></dd>  
 </dl>
 
@@ -12,6 +12,6 @@
   <hr>
   <h2><%= "Additional Books by #{@content_block.name}" %></h2>
   <ul>
-    <%= render 'book_stock_status', books: @content_block.books.not_for_sale %>
+    <%= render 'book_stock_status', books: @content_block.books.available(false) %>
   </ul>
 <% end %>

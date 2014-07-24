@@ -9,13 +9,8 @@ module Starterappbritneyv2
 
     validates_presence_of :name
 
-    def self.for_sale
-      where(in_stock: true)
-    end
-
-    def self.not_for_sale
-      where(in_stock: false)
-    end
+    scope :available, -> status { where(in_stock: status) }
+  
 
   end
 end
