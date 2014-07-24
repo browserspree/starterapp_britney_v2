@@ -4,7 +4,7 @@
     <dt>Bio:</dt><dd><%= show :bio %></dd>
     <dt>Available Books:</dt>
     <dd><ul>
-        <%= render partial: 'book_stock_status' %>
+        <%= render 'book_stock_status', status: book.in_stock? %>
     </ul></dd>  
 </dl>
 
