@@ -4,7 +4,7 @@
     <dt>Bio:</dt><dd><%= show :bio %></dd>
     <dt>Available Books:</dt>
     <dd><ul>
-        <%= render 'book_stock_status', status: book.in_stock? %>
+        <%= render 'book_stock_status', books: @content_block.books.for_sale %>
     </ul></dd>  
 </dl>
 
@@ -12,10 +12,6 @@
   <hr>
   <h2><%= "Additional Books by #{@content_block.name}" %></h2>
   <ul>
-    <% @content_block.books.each do |book| %>
-      <% if !book.in_stock? %>
-        <li><%= link_to book.name, main_app.book_slug_path(book.slug) %></li>
-      <% end %>
-    <% end %>
+    <%= render 'book_stock_status', books: @content_block.books.not_for_sale %>
   </ul>
 <% end %>

@@ -1,5 +1,3 @@
-<% @content_block.books.each do |book| %>
-  <% if status %>
+<% books.each do |book| %>
     <li><%= link_to book.name, main_app.book_slug_path(book.slug) %></li>
-  <% end %>
 <% end %>

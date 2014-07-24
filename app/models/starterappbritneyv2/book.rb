@@ -12,5 +12,10 @@ module Starterappbritneyv2
     def self.for_sale
       where(in_stock: true)
     end
+
+    def self.not_for_sale
+      where(in_stock: false)
+    end
+
   end
 end
