@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716220913) do
+ActiveRecord::Schema.define(version: 20140725020102) do
 
   create_table "author_versions", force: true do |t|
     t.string   "name"
@@ -34,12 +34,16 @@ ActiveRecord::Schema.define(version: 20140716220913) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "version"
-    t.integer  "lock_version",  default: 0
-    t.boolean  "published",     default: false
-    t.boolean  "deleted",       default: false
-    t.boolean  "archived",      default: false
+    t.integer  "lock_version",          default: 0
+    t.boolean  "published",             default: false
+    t.boolean  "deleted",               default: false
+    t.boolean  "archived",              default: false
     t.integer  "created_by_id"
     t.integer  "updated_by_id"
+    t.string   "headshot_file_name"
+    t.string   "headshot_content_type"
+    t.integer  "headshot_file_size"
+    t.datetime "headshot_updated_at"
   end
 
   create_table "authors_books", id: false, force: true do |t|

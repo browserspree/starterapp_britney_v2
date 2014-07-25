@@ -10,7 +10,13 @@ module Starterappbritneyv2
     validates_presence_of :name
 
     scope :available, -> status { where(in_stock: status) }
-  
 
+    def genres
+      genres = Array.new
+      categories.each do |c|
+         genres << c if c.category_type.name=="Genres" 
+      end
+      genres
+    end
   end
 end

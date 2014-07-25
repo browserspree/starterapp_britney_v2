@@ -11,8 +11,8 @@
         <dt>Price:</dt><dd><%= show :price %></dd>
         <dt>Genres:</dt>
           <dd>
-          <% @content_block.categories.each do |category| %>
-            <li><%= category.name %></li>
+          <% @content_block.genres.each do |g| %>
+            <li><%= g.name %></li>
           <% end %> 
           </dd>
         <dt>Description:</dt><dd><%= show :description %></dd>
