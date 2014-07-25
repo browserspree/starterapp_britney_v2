@@ -1,0 +1,6 @@
+<h2><%= @portlet.name %></h2>
+<ul>
+  <% @genres.category_list.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ul>
