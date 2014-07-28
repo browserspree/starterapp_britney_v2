@@ -11,6 +11,8 @@ module Starterappbritneyv2
 
     scope :available, -> status { where(in_stock: status) }
 
+    scope :types, -> n { joins(:categories).where('category_id = ?', n) }
+
     def genres
       genres = Array.new
       categories.each do |c|

@@ -1,4 +1,4 @@
-class TopBooksForSalePortlet < Cms::Portlet
+class RelatedBooksPortlet < Cms::Portlet
 
   description "TODO: Provide a suitable description for this portlet."
 
@@ -6,7 +6,11 @@ class TopBooksForSalePortlet < Cms::Portlet
   enable_template_editor false
      
   def render
-    @books = Starterappbritneyv2::Book.available(true).order("created_at desc").limit(self.limit)
+    @books = Starterappbritneyv2::Book.types(category_ids).order("created_at desc").limit(self.limit)
+    @book = Starterappbritneyv2::Book.find(2)
   end
     
+  def category_ids
+    2
+  end 
 end

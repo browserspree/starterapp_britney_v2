@@ -1,6 +1,7 @@
-<h2><%= @portlet.name %></h2>
+<h3>Recommended for you</h3>
 <ul>
   <% @books.each do |book| %>
     <li><%= link_to book.name, book_slug_path(book.slug) %></li>
   <% end %>
 </ul>
+

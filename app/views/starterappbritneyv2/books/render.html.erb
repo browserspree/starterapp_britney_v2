@@ -17,3 +17,22 @@
           </dd>
         <dt>Description:</dt><dd><%= show :description %></dd>
 </dl>
+
+<% unless @content_block.authors.all?{|author| author.books.count <= 1} %>
+  <hr>
+  <h3>More by this author</h3>
+  <% @content_block.authors.each do |author| %>
+    <% author.books.each do |book| %>
+      <% unless book == @content_block %>
+        <li><%= link_to book.name, book.slug %>
+          <% if book.in_stock? %>
+            - buy now
+          <% end %>        
+        </li>
+      <% end %>  
+    <% end %>
+  <% end %>
+<% end %>
+
+<hr>
+<%= render_portlet "By Genre" %>
