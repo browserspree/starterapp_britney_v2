@@ -6,11 +6,10 @@ class RelatedBooksPortlet < Cms::Portlet
   enable_template_editor false
      
   def render
-    @books = Starterappbritneyv2::Book.types(category_ids).order("created_at desc").limit(self.limit)
-    @book = Starterappbritneyv2::Book.find(2)
+    @slug = params[:book_slug]
+    sn = Cms::SectionNode.where(node_type: "Starterappbritneyv2::Book", slug: "the-world-in-half")
+    book = Starterappbritneyv2::Book.find(sn.first.node_id)
+    @books = Starterappbritneyv2::Book.types(book.categories.first{|c| c.id}).order("created_at desc")
   end
-    
-  def category_ids
-    2
-  end 
+
 end

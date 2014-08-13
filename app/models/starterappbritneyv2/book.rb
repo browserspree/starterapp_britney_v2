@@ -8,6 +8,7 @@ module Starterappbritneyv2
     has_attachment :cover
 
     validates_presence_of :name
+    validates_uniqueness_of :book_slug
 
     scope :available, -> status { where(in_stock: status) }
 
@@ -20,5 +21,9 @@ module Starterappbritneyv2
       end
       genres
     end
+
+    def related_books
+      
+    end  
   end
 end
